@@ -1,0 +1,16 @@
+public class JoueurNumeri extends Joueur{
+
+    private final Pion[] pion;
+
+    public JoueurNumeri(int numJ){
+	super(numJ);
+	this.pion=new pion[6];
+	for(int i=0;i<6;i++){
+	    Pion p=new Pion(i+1);
+	    this.pion[i]=p;
+	}
+    }
+
+    public Pion getPion(int val){
+	return this.pion[val-1];
+    }

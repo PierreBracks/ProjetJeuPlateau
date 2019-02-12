@@ -1,0 +1,25 @@
+public class Plateau{
+    private Case[] plateau;
+    private Joueur[] joueurs;
+
+    public Plateau(int nbJ){
+	/*TO DO*/
+    }
+
+    public void viderCase(int i){
+    }
+
+    public void remplirCase(int i,Joueur J){
+    }
+
+    public Case getCase(int i){
+	return this.plateau[i];
+    }
+    //provisoir
+    public void afficher(){
+	for(int i=1;i<=63;i++){
+	    System.out.println(i+": "+this.plateau[i].toString());
+	}
+    }
+
+}

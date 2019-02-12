@@ -1,0 +1,22 @@
+import java.util.*;
+
+public class PlateauOieV3 extends PlateauOieV2{
+
+    public PlateauOieV3(int nbJ){
+	super(nbJ);
+    }
+
+    public void deplacement(Joueur j, int depart,int arrive){
+	if(arrive!=0 ){
+	    if(arrive>63){
+		arrive=63-(arrive-63);
+	    }
+	    while(!this.getCase(arrive-1).estVide()){
+		arrive-=1;
+		if(arrive==0)
+		    break;
+	    }
+	}
+	super.deplacement(j,depart,arrive);
+    }
+}

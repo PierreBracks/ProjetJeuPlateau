@@ -1,0 +1,7 @@
+public class JeuOie extends Jeu{
+
+    public JeuOie(int nbJ){
+	super.plateau= new PlateauOie(nbJ);
+	super.jeuFini=false;
+    }
+}

@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class PlateauOieV2 extends PlateauOie{
+    
+    public PlateauOieV2(int nbJ){
+	super(nbJ);
+    }
+
+    public void deplacement(Joueur j, int depart, int arrive){
+	int de=arrive-depart;//juste pour le cas ou l'on tombe sur l'oie 54.
+	if(arrive>=63){
+	    arrive=63-(arrive-63);
+	    if(arrive==52){
+		((JoueurOie)j).nePourraPasJouer();
+		if (!(this.getCase(51).estVide())){
+		    ListIterator<Joueur> it=this.getCase(51).joueur.listIterator();
+		    while(it.hasNext()){
+			JoueurOie Jo=(JoueurOie)(it.next());
+			Jo.pourraJouer();
+		    }
+		}
+	    }
+	    else if(arrive==58)
+		arrive=0;
+	    else if(arrive==54){
+		arrive-=de;
+		if(arrive==42)
+		    arrive=37;
+	    }
+	}
+	
+	super.deplacement(j,depart,arrive);
+    }
+}

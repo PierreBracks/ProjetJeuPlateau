@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class JeuNumeri extends Jeu{
+
+    public JeuNumeri(int nbJ){
+	plateau= new PlateauNumeri(nbJ);
+	jeuFini=false;
+    }
+    public void JouerTour(){
+	for(Joueur J : plateau.getJoueurs())
+	    if(!jeuFini)
+		jouerTourJoueur((JoueurNumeri)J);
+    }
+
+    public void jouerTourJoueur(JoueurNumeri J){
+	int de=Joueur.lancerDes;
+
+	LinkedList<Pion> pions= choisirPion(de,J);
+	ListIterator<Pion> it=pions.listIterator();
+	while(it.hasNext()){
+	    Pion p=it.next();
+	    plateau.deplacement(J,p.getP(),p.getP()+1);
+	}
+
+	if(!plateau.getCase(36).estVide() && !plateau.getCase(37).estVide() && !plateau.getCase(38).estVide())
+	    jeuFini=true;
+
+	if(J.peutRejouer())
+	    jouerTourJoueur(J);
+    }
+
+    public void afficherJeu(){
+	System.out.println("jeu fini: "+jeuFini);
+	for(Joueur J: plateau.getJoueurs()){
+	    String s=((JoueurNumeri)J).toString();
+	    for(int i=0;i<6;i++){
+		s+= " : " ((JoueurNumeri)J).getPion(i).getP()+", ";
+	    }
+	    Sytem.out.println(s);
+	}
+        System.out.println("");
+    }
+}

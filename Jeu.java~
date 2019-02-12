@@ -1,0 +1,6 @@
+public abstract class Jeu{
+    protected Plateau plateau;
+    protected boolean jeuFini;
+
+    public abstract void jouerTour();
+}

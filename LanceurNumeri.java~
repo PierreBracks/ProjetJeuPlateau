@@ -1,0 +1,22 @@
+import java.util.*;
+
+public class LanceurNumeri{
+    public static void main(String [] args){
+	
+	System.out.println("Bienvenue dans le jeu Numeri.\nTapez 'exit' a tout moment pour quitter\nCombien de joueurs souhaiter vous ?");
+	Scanner sc= new Scanner(System.in);
+	String rep=sc.nextLine();
+	int i=Integer.parseInt(rep);
+
+	JeuNumeri jeu=new JeuNumeri(i);
+
+	jeu.afficherJeu();
+
+	while(!jeu.estFini()){
+	    jeu.jouerTour();
+	    jeu.afficherJeu();
+	    ((PlateauNumeri) (jeu.plateau)).afficherScore();
+	}
+    }
+}
+		

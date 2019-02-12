@@ -1,0 +1,57 @@
+import java.util.*;
+
+public class Case{
+    private int valeur;
+    private boolean vide;
+    protected LinkedList<Joueur> joueur;
+
+    public Case(int val){
+	this.valeur=val;
+	this.vide=true;
+	this.joueur=new LinkedList<Joueur>();
+    }
+    public int getVal(){
+	return this.valeur;
+    }
+    public Joueur getFirstJoueur(){
+	return this.joueur.getFirst();
+    }
+
+    public boolean estVide(){
+	return this.vide;
+        
+    }
+
+    public void remplirCase(Joueur J){
+        this.vide=false;
+	this.joueur.add(J);
+    }
+
+    public void viderCase(Joueur J){
+	//System.out.println("vider Case de: "+J+" ");
+        this.joueur.remove(J);
+	if(this.joueur.isEmpty()){
+	    //System.out.println("test");
+	    this.joueur=new LinkedList<Joueur>();
+	    this.vide=true;
+	}
+	
+    }
+
+    public String toString(){
+	String s="";
+	s+= "num:"+this.valeur;
+	s+=" vide: "+this.vide;
+	if(!this.vide){
+	    String j="";
+	    ListIterator<Joueur> it=this.joueur.listIterator();
+	    while(it.hasNext())
+		j+=it.next()+" ";
+	    /*
+	      for(int i=0;i<joueur.size();i++)
+	      j+=joueur.get(i);*/
+	    s+=" joueur: "+j;
+	}
+	return s;
+    }
+}

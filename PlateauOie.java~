@@ -1,0 +1,12 @@
+public class PlateauOie extends Plateau{
+
+    public PlateauOie(int nbJ){
+	this.plateau= new Case(63);
+	this.joueurs=new joueur(nbJ);
+	this.longueur=63;
+	for (int i=0;i<63;i++){
+	    Case c=new Case(i+1);
+	    this.plateau[i]=c;
+	}
+    }
+}
